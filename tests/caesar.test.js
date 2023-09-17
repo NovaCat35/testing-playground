@@ -13,3 +13,6 @@ test("sentence cipher", () => {
 test("capital letters cipher", () => {
 	expect(caesar("Hello Zebra!")).toEqual("Ifmmp Afcsb!");
 });
+test("standard cipher", () => {
+	expect(caesar("defend the east wall of the castle")).toEqual("efgfoe uif fbtu xbmm pg uif dbtumf");
+});
