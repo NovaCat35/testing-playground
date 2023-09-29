@@ -171,28 +171,16 @@ function fibsRecursion(nth) {
 // Once we find all the order to one array, pop out of while loop
 // Now we just take all the elements on the remaining array and put in output array
 function merge(leftArray, rightArray) {
-   let leftLength = leftArray.length;
-	let rightLength = rightArray.length;
-	let leftP = 0;
-	let rightP = 0;
    let output = []
 
-	while (leftP < leftLength && rightP < rightLength) {
-		if (leftArray[leftP] < rightArray[rightP]) {
-			output.push(leftArray[leftP])
-			leftP += 1;
+	while (leftArray.length > 0 && rightArray.length > 0) {
+		if (leftArray[0] < rightArray[0]) {
+			output.push(leftArray.shift())
 		} else {
-			output.push(rightArray[rightP])
-			rightP += 1;
+			output.push(rightArray.shift())
 		}
 	}
-	for (; leftP < leftLength; leftP++) {
-      output.push(leftArray[leftP])
-	}
-	for (; rightP < rightLength; rightP++) {
-      output.push(rightArray[rightP])
-	}
-   return output;
+   return output.concat(leftArray, rightArray);
 }
 
 function mergeSort(nums) {
